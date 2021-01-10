@@ -35,9 +35,13 @@ if(isset($_POST['submit']))
             try
             {
                 $interpret = $_POST["tbxInterpret"];
-                $name = $_POST["tbxSongName"];
+                if($name != "") $name = $_POST["tbxSongName"];
+		else $name = $fileName;
             }
-            catch(Exception $e){}
+            catch(Exception $e)
+		{
+			$name = $fileName;
+		}
 
             $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName) VALUES ('%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name);
             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));

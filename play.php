@@ -26,6 +26,7 @@
 	</head>
 	<body>
 	<div class="container">
+		<a href="index.php"><img src="https://serwm.com/logo_rund.png" style="display: inline;"></a>
 		<center><h1><?php echo $title; ?></h1></center>
 		<table class="table">
 			<tr>

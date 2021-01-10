@@ -3,13 +3,22 @@
     <head>
         <meta charset="UTF-8"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <title>serWm Sound</title>
+        <title>serWm Soundshare</title>
     </head>
     <body>
         <script src="./draganddrop.js"></script>
         <div class="drop-zone" style="position: fixed;padding: 0;margin: 0;top: 0; left: 0;width: 100%;height: 100%;">
             <div class="container">
-                <h1>serWm Soundshare</h1><hr>
+                <h1>serWm Soundshare</h1>
+		<small>
+		<?php
+			require_once "dbh.inc.php";
+			$sql = "SELECT COUNT(uID) FROM tblUpload";
+			$row = mysqli_fetch_row(mysqli_query($conn, $sql));
+			echo "Hosting " . $row[0] . " Sound files right now!";
+		?>
+		</small>
+		<hr>
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                     <table class="table">
                         <thead>
