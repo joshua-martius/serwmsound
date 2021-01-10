@@ -37,5 +37,6 @@
 			<source src="<?php echo 'uploads/' . $id . '.mp3';?>" type="audio/mpeg">
 		</audio><br>
 	</div>
+	<?php include_once "commentbox.php"; ?>
 	</body>
 </html>
