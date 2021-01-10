@@ -6,32 +6,35 @@
         <title>serWm Sound</title>
     </head>
     <body>
-        <div class="container">
-            <h1>serWm Soundshare</h1><hr>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Property</th>
-                            <th scope="col">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" required></td>
-                            <td><button class="btn btn-primary" type="submit" value="Upload Soundfile" name="submit">Submit Upload</button></td>
-                        </tr>
-                        <tr>
-                            <td>Interpret:</td>
-                            <td><input type="text" name="tbxInterpret" placeholder="optional"></td>
-                        </tr>
-                        <tr>
-                            <td>Song Name:</td>
-                            <td><input type="text" name="tbxSongName" placeholder="optional"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+        <script src="./draganddrop.js"></script>
+        <div class="drop-zone" style="position: fixed;padding: 0;margin: 0;top: 0; left: 0;width: 100%;height: 100%;">
+            <div class="container">
+                <h1>serWm Soundshare</h1><hr>
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Property</th>
+                                <th scope="col">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
+                                <td><button class="btn btn-primary" type="submit" value="Upload Soundfile" name="submit">Submit Upload</button></td>
+                            </tr>
+                            <tr>
+                                <td>Interpret:</td>
+                                <td><input type="text" name="tbxInterpret" placeholder="optional"></td>
+                            </tr>
+                            <tr>
+                                <td>Song Name:</td>
+                                <td><input type="text" name="tbxSongName" placeholder="optional"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
         </div>
     </body>
 </html>
