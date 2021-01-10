@@ -30,7 +30,16 @@ if(isset($_POST['submit']))
             } while(file_exists($fullPath));
             
             require_once "dbh.inc.php";
-            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP) VALUES ('%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"]);
+            $interpret = "";
+            $name = "";
+            try
+            {
+                $interpret = $_POST["tbxInterpret"];
+                $name = $_POST["tbxSongName"];
+            }
+            catch{}
+
+            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uSongName) VALUES ('%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name);
             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
             if(result == true)
             {
