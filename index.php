@@ -20,16 +20,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
-                                <td><button class="btn btn-primary" type="submit" value="Upload Soundfile" name="submit">Submit Upload</button></td>
-                            </tr>
-                            <tr>
                                 <td>Interpret:</td>
                                 <td><input type="text" name="tbxInterpret" placeholder="optional"></td>
                             </tr>
                             <tr>
                                 <td>Song Name:</td>
                                 <td><input type="text" name="tbxSongName" placeholder="optional"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
+                                <td>
+                                    <button class="btn btn-primary" type="submit" value="" name="submit">Submit Upload</button>
+                                    <button class="btn btn-secondary" type="reset" value="" name="clear">Clear Form</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
