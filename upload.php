@@ -27,9 +27,20 @@ if(isset($_POST['submit']))
 			$newDbName = RandomString(16);
 			$newFileName = $newDbName . ".mp3";
 			$fullPath = "uploads/" . $newFileName;
-		} while(file_exists($fullPath));
+        } while(file_exists($fullPath));
+        
+        require_once "dbh.inc.php";
+        $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP) VALUES ('%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"]);
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+        if(result === true)
+        {
+            move_uploaded_file($tmpFileName, $fullPath);
+            header("Location: play.php?id=" . $newDbName);
+        }
+        else
+        {
+            echo "Some random database error message... ";
+        }
 
-		move_uploaded_file($tmpFileName, $fullPath);
-        	header("Location: play.php?id=" . $newDbName);
 	}
 }
