@@ -37,9 +37,9 @@ if(isset($_POST['submit']))
                 $interpret = $_POST["tbxInterpret"];
                 $name = $_POST["tbxSongName"];
             }
-            catch{}
+            catch(Exception $e){}
 
-            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uSongName) VALUES ('%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name);
+            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName) VALUES ('%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name);
             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
             if(result == true)
             {

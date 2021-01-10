@@ -10,11 +10,10 @@
     $row = mysqli_fetch_row($result);
 	if(empty($row)) die("ID doesnt exist virtually.");
 	$title = "";
-	if($row[1] == "" && $row[2] == "") $title = "serWm Soundshare"
+	if($row[1] == "" && $row[2] == "") $title = "serWm Soundshare";
 	else if($row[1] != "" && $row[2] == "") $title = $row[1];
 	else if($row[1] == "" && $row[2] != "") $title = $row[2];
 	else $title = $row[1] . " - " . $row[2];
-	echo $title;
 ?>
 <!DOCTYPE html>
 <html>
