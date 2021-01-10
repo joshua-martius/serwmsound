@@ -32,14 +32,14 @@ if(isset($_POST['submit']))
         require_once "dbh.inc.php";
         $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP) VALUES ('%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"]);
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        if(result === true)
+        if(result == true)
         {
             move_uploaded_file($tmpFileName, $fullPath);
             header("Location: play.php?id=" . $newDbName);
         }
         else
         {
-            echo "Some random database error message... ";
+            echo "Database error in upload.php";
         }
 
 	}
