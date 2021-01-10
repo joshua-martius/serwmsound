@@ -9,9 +9,9 @@
         <h1>serWm Soundshare</h1>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             Select soundfile to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="file" name="fileToUpload" id="fileToUpload"><br>
             <input type="submit" value="Upload Soundfile" name="submit">
         </form>
-    </center>
+	</center>
     </body>
 </html>
