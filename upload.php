@@ -9,7 +9,6 @@ function RandomString($len)
 	}
 	return $randstring;
 }
-
 if(isset($_POST['submit']))
 {
         $file = $_FILES["fileToUpload"];
@@ -28,7 +27,6 @@ if(isset($_POST['submit']))
                 $newFileName = $newDbName . ".mp3";
                 $fullPath = "uploads/" . $newFileName;
             } while(file_exists($fullPath));
-            
             require_once "dbh.inc.php";
             $interpret = "";
             $name = "";
@@ -38,10 +36,7 @@ if(isset($_POST['submit']))
                 if($name != "") $name = $_POST["tbxSongName"];
 		else $name = $fileName;
             }
-            catch(Exception $e)
-		{
-			$name = $fileName;
-		}
+            catch(Exception $e){}
 
             $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName) VALUES ('%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name);
             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -54,5 +49,11 @@ if(isset($_POST['submit']))
             {
                 echo "Database error in upload.php";
             }
-	    }
+	}
+	else header("Location: index.php?error=toobig");
+}
+else
+{
+	die("Hey Buddy, you seem to be ran into an error case I cant understand and therefore not fix.\n If you know 
+	anything about php development, please contact me on my github for this project: https://github.com/y0sh1DE/serwmsound");
 }
