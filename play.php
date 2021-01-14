@@ -1,14 +1,14 @@
 <?php
-	if(!isset($_GET["id"]) || $_GET["id"] == "") die("No id provided.");
+	if(!isset($_GET["id"]) || $_GET["id"] == "") header("Location: index.php?msg=noidgiven");
 	$id = $_GET["id"];
 	$filename = "uploads/" . $id . ".mp3";
-    if(!file_exists($filename)) die("ID doesnt exist physically.");
+    if(!file_exists($filename)) header("Location: index.php?msg=filenotfound");
 
     require_once "dbh.inc.php";
     $sql = sprintf("SELECT uUploaded, uInterpret, uName, uHits FROM tblUpload WHERE uID = '%s'", $id);
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_row($result);
-	if(empty($row)) die("ID doesnt exist virtually.");
+	if(empty($row)) header("Location: index.php?msg=entrynotfound");
 	$sql = sprintf("UPDATE tblUpload SET uHits = uHits + 1 WHERE uID = '%s'", $id);
 	$result = mysqli_query($conn, $sql);
 	$title = "";
