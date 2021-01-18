@@ -39,7 +39,7 @@
 			}
 		?>
 		<hr>
-                <form action="upload.php" method="post" enctype="multipart/form-data">
+                <form id="frmUploader" name="frmUploader" action="upload.php" method="post" enctype="multipart/form-data">
                     <table class="table">
                         <thead>
                             <tr>
@@ -59,8 +59,8 @@
                             <tr>
                                 <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
                                 <td>
-                                    <button class="btn btn-primary" type="submit" value="" name="submit">Submit Upload</button>
-                                    <button class="btn btn-secondary" type="reset" value="" name="clear">Clear Form</button>
+                                    <button class="btn btn-primary" type="submit" value="btnSubmit" name="btnSubmit">Submit Upload</button>
+                                    <button class="btn btn-secondary" type="reset" value="btnClear" name="btnClear">Clear Form</button>
                                 </td>
                             </tr>
                         </tbody>

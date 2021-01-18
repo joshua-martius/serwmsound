@@ -11,6 +11,7 @@ window.onload = function(){
             if(e.dataTransfer.files.length)
             {
                 inputElement.files = e.dataTransfer.files;
+		document.getElementById('frmUploader').submit();
             }
         });
     });

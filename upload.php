@@ -9,7 +9,7 @@ function RandomString($len)
 	}
 	return $randstring;
 }
-if(isset($_POST['submit']))
+if(isset($_FILES['fileToUpload']))
 {
         $file = $_FILES["fileToUpload"];
         $fileName = $file["name"];
@@ -54,6 +54,5 @@ if(isset($_POST['submit']))
 }
 else
 {
-	die("Hey Buddy, you seem to be ran into an error case I cant understand and therefore not fix.\n If you know 
-	anything about php development, please contact me on my github for this project: https://github.com/y0sh1DE/serwmsound");
+	header("Location: index.php");
 }
