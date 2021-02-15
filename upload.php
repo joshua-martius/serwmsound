@@ -17,7 +17,7 @@ if(isset($_FILES['fileToUpload']))
         $fileType = $file["type"];
 	    $tmpFileName = $file["tmp_name"];
 
-        if($fileSize < 10000000)
+        if($fileSize < 50000000)
         {
             $fullPath = "";
             $newDbName = "";
@@ -33,8 +33,8 @@ if(isset($_FILES['fileToUpload']))
             try
             {
                 $interpret = $_POST["tbxInterpret"];
-                if($name != "") $name = $_POST["tbxSongName"];
-		else $name = $fileName;
+                $name = $_POST["tbxSongName"];
+		if($name == "") $name = $fileName;
             }
             catch(Exception $e){}
 
