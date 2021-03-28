@@ -30,16 +30,18 @@ if(isset($_FILES['fileToUpload']))
             require_once "dbh.inc.php";
             $interpret = "";
             $name = "";
-            try
+            $lyrics = "";
+	    try
             {
                 $interpret = $_POST["tbxInterpret"];
                 $name = $_POST["tbxSongName"];
+		$lyrics = mysqli_real_escape_string($conn,$_POST["tbxLyrics"]);
 		if($name == "") $name = $fileName;
             }
             catch(Exception $e){}
 
-            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName) VALUES ('%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name);
-            $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName, uLyrics) VALUES ('%s','%s','%s','%s','%s')", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name,$lyrics);
+	    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
             if(result == true)
             {
                 move_uploaded_file($tmpFileName, $fullPath);

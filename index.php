@@ -50,12 +50,16 @@
                         <tbody>
                             <tr>
                                 <td>Interpret:</td>
-                                <td><input type="text" name="tbxInterpret" placeholder="optional"></td>
+                                <td><input class="form-control" type="text" name="tbxInterpret" placeholder="optional"></td>
                             </tr>
                             <tr>
                                 <td>Song Name:</td>
-                                <td><input type="text" name="tbxSongName" placeholder="optional"></td>
+                                <td><input class="form-control" type="text" name="tbxSongName" placeholder="optional"></td>
                             </tr>
+			    <tr>
+				<td>Lyrics:</td>
+				<td><textarea class="form-control" name="tbxLyrics" placeholder="optional"></textarea></td>
+			    </tr>
                             <tr>
                                 <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
                                 <td>

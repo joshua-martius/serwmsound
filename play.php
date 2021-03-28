@@ -5,17 +5,18 @@
     if(!file_exists($filename)) header("Location: index.php?msg=filenotfound");
 
     require_once "dbh.inc.php";
-    $sql = sprintf("SELECT uUploaded, uInterpret, uName, uHits FROM tblUpload WHERE uID = '%s'", $id);
+    $sql = sprintf("SELECT uUploaded, uInterpret, uName, uHits, uLyrics FROM tblUpload WHERE uID = '%s'", $id);
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_row($result);
-	if(empty($row)) header("Location: index.php?msg=entrynotfound");
-	$sql = sprintf("UPDATE tblUpload SET uHits = uHits + 1 WHERE uID = '%s'", $id);
-	$result = mysqli_query($conn, $sql);
-	$title = "";
-	if($row[1] == "" && $row[2] == "") $title = "serWm Soundshare";
-	else if($row[1] != "" && $row[2] == "") $title = $row[1];
-	else if($row[1] == "" && $row[2] != "") $title = $row[2];
-	else $title = $row[1] . " - " . $row[2];
+    if(empty($row)) header("Location: index.php?msg=entrynotfound");
+    $sql = sprintf("UPDATE tblUpload SET uHits = uHits + 1 WHERE uID = '%s'", $id);
+    $result = mysqli_query($conn, $sql);
+    $title = "";
+    $lyrics = $row[4];
+    if($row[1] == "" && $row[2] == "") $title = "serWm Soundshare";
+    else if($row[1] != "" && $row[2] == "") $title = $row[1];
+    else if($row[1] == "" && $row[2] != "") $title = $row[2];
+    else $title = $row[1] . " - " . $row[2];
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,6 +38,12 @@
 		<audio controls controlsList="nodownload" style="width: 100%">
 			<source src="<?php echo 'uploads/' . $id . '.mp3';?>" type="audio/mpeg">
 		</audio><br>
+		<?php
+			if($lyrics != "")
+			{
+				echo "Lyrics: <br><pre>" . $lyrics .  "</pre>";
+			}
+		?>
 	</div>
 	<?php include_once "commentbox.php"; ?>
 	</body>
