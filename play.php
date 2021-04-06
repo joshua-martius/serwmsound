@@ -5,7 +5,7 @@
     if(!file_exists($filename)) header("Location: index.php?msg=filenotfound");
 
     require_once "dbh.inc.php";
-    $sql = sprintf("SELECT uUploaded, uInterpret, uName, uHits, uLyrics FROM tblUpload WHERE uID = '%s'", $id);
+    $sql = sprintf("SELECT uUploaded, uInterpret, uName, uHits, uLyrics, uAllowComments FROM tblUpload WHERE uID = '%s'", $id);
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_row($result);
     if(empty($row)) header("Location: index.php?msg=entrynotfound");
@@ -13,6 +13,7 @@
     $result = mysqli_query($conn, $sql);
     $title = "";
     $lyrics = $row[4];
+    $comments = $row[5];
     if($row[1] == "" && $row[2] == "") $title = "serWm Soundshare";
     else if($row[1] != "" && $row[2] == "") $title = $row[1];
     else if($row[1] == "" && $row[2] != "") $title = $row[2];
@@ -45,6 +46,6 @@
 			}
 		?>
 	</div>
-	<?php include_once "commentbox.php"; ?>
+	<?php if($comments == 1) include_once "commentbox.php"; ?>
 	</body>
 </html>

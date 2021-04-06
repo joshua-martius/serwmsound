@@ -60,6 +60,18 @@
 				<td>Lyrics:</td>
 				<td><textarea class="form-control" name="tbxLyrics" placeholder="optional"></textarea></td>
 			    </tr>
+			    <tr>
+				<td>Allow Comments:</td>
+				<td>
+					<div class="form-group">
+					    <select class="form-control" id="cmbAllowComments" name="cmbAllowComments">
+					      <option>Yes</option>
+					      <option>No</option>
+					      <option>Maybe</option>
+					    </select>
+					  </div>
+				</td>
+			   </tr>
                             <tr>
                                 <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
                                 <td>
