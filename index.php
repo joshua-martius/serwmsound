@@ -8,6 +8,9 @@
     </head>
     <body>
         <script src="./draganddrop.js"></script>
+		<?php
+			include_once "otheruploads.php";
+		?>
         <div class="drop-zone" style="position: fixed;padding: 0;margin: 0;top: 0; left: 0;width: 100%;height: 100%;">
             <div class="container">
                 <h1>serWm Soundshare</h1>
