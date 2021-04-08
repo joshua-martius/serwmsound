@@ -9,8 +9,13 @@
     <body>
         <script src="./draganddrop.js"></script>
         <div class="drop-zone" style="position: fixed;padding: 0;margin: 0;top: 0; left: 0;width: 100%;height: 100%;">
-            <div class="container">
-                <h1>serWm Soundshare</h1>
+		<div class="container">
+			<div class="row">
+			<div class="col-md-auto">
+			<?php include_once "otheruploads.php"; ?>
+		</div>
+		<div class="col-md-auto">
+		<h1>serWm Soundshare</h1>
 		<small>
 		<?php
 			require_once "dbh.inc.php";
@@ -84,8 +89,6 @@
                 </form>
             </div>
         </div>
-	<div style="float: left; margin-left: 10px; margin-top: 10px;">
-	<?php include_once "otheruploads.php"; ?>
 	</div>
     </body>
 </html>
