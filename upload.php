@@ -32,6 +32,7 @@ if(isset($_FILES['fileToUpload']))
             $name = "";
             $lyrics = "";
 	    $allowComments = 1;
+	    $showPublic = 0;
 	    try
             {
                 $interpret = $_POST["tbxInterpret"];
@@ -41,10 +42,14 @@ if(isset($_FILES['fileToUpload']))
 		if($_POST["cmbAllowComments"] == "Yes") $allowComments = 1;
 		else if($_POST["cmbAllowComments"] == "Maybe") $allowComments = random_int(0,1);
 		else $allowComments = 0;
+
+		if($_POST["cmbShowPublic"] == "Yes") $showPublic = 1;
+		else if($_POST["cmbShowPublic"] == "Maybe") $showPublic = random_int(0,1);
+		else $showPublic = 0;
             }
             catch(Exception $e){}
 
-            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName, uLyrics, uAllowComments) VALUES ('%s','%s','%s','%s','%s', %d)", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name, $lyrics, $allowComments);
+            $sql = sprintf("INSERT INTO tblUpload(uID, uUploaderIP, uInterpret, uName, uLyrics, uAllowComments, uShowPublic) VALUES ('%s','%s','%s','%s','%s', %d, %d)", $newDbName, $_SERVER["REMOTE_ADDR"], $interpret, $name, $lyrics, $allowComments, $showPublic);
 	    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
             if(result == true)
             {

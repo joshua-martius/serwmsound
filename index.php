@@ -77,7 +77,20 @@
 					  </div>
 				</td>
 			   </tr>
-                            <tr>
+			  <tr>
+				<td>Show Upload in Public list:</td>
+				<td>
+					<div class="form-group">
+						<select class="form-control" id="cmbShowPublic" name="cmbShowPublic">
+							<option>Yes</option>
+							<option selected>No</option>
+		                                        <option>Maybe</option>
+                                            </select>
+                                          </div>
+					</div>
+				</td>
+			  </tr>
+                           <tr>
                                 <td><input type="file" name="fileToUpload" id="fileToUpload" accept=".mp3" class="drop-zone__input" required></td>
                                 <td>
                                     <button class="btn btn-primary" type="submit" value="btnSubmit" name="btnSubmit">Submit Upload</button>
